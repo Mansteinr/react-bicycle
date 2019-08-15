@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Life from './pages/demo/Life';
 import * as serviceWorker from './serviceWorker';
-import './pages/demo/index.less'
 ReactDOM.render(<Life />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
