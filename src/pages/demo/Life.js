@@ -1,6 +1,7 @@
 import React from 'react'
 import Child from './Child'
-
+import './index.less'
+console.log(90)
 export default class Life extends React.Component{
   constructor(props) {
     super(props)
