@@ -1,7 +1,6 @@
 import React from 'react'
 import Child from './Child'
-import './index.less'
-console.log(90)
+import { Button } from 'antd';
 export default class Life extends React.Component{
   constructor(props) {
     super(props)
@@ -26,6 +25,7 @@ export default class Life extends React.Component{
       <button onClick={this.handleAdd}>点击一些</button>
       <button onClick={this.handClick.bind(this)}>点击一些</button>
       <p>{this.state.count}</p>
+      <Button type="primary">Primary</Button>
       <Child name={this.state.count}/>
     </div>
   }
