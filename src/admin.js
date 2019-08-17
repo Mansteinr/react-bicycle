@@ -1,7 +1,6 @@
 import React from 'react'
-import Child from './Child'
-import { Button } from 'antd';
-export default class Life extends React.Component{
+import { Button } from 'antd'
+export default class Admin extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
@@ -25,7 +24,6 @@ export default class Life extends React.Component{
       <button onClick={this.handleAdd}>点击一些</button>
       <button onClick={this.handClick.bind(this)}>点击一些</button>
       <p>{this.state.count}</p>
-      <Child name={this.state.count} />
       <Button type="primary"  onClick={this.handleAdd}>
         Primary
       </Button>
