@@ -1,32 +1,29 @@
-import React from 'react'
-import { Button } from 'antd'
-export default class Admin extends React.Component{
-  constructor(props) {
-    super(props)
-    this.state = {
-      count: 0
-    }
-  }
-  handleAdd = () => {
-    this.setState({
-      count: this.state.count + 1
-    })
-  }
+import React, { Component } from 'react'
+import { Row, Col } from 'antd'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import NavLeft from './components/NavLeft'
+import './style/common.less'
 
-  handClick () {
-    this.setState({
-      count: this.state.count + 1
-    })
-  }
+export default class Admin extends Component{
   render () {
-    return <div>
-      <p>React生命周期函数</p>
-      <button onClick={this.handleAdd}>点击一些</button>
-      <button onClick={this.handClick.bind(this)}>点击一些</button>
-      <p>{this.state.count}</p>
-      <Button type="primary"  onClick={this.handleAdd}>
-        Primary
-      </Button>
-    </div>
+    return (
+      <Row className="container">
+        <Col span={4} className="nav-left">
+          <NavLeft></NavLeft>
+        </Col>
+        <Col span={20} className="main">
+          <Header>
+            Header
+          </Header>
+          <Row className="content">
+            center
+          </Row>
+          <Footer>
+            Footer
+          </Footer>
+        </Col>
+      </Row>
+    )
   }
 }
