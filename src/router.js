@@ -5,7 +5,6 @@ import Admin from './admin'
 import Login from './pages/login'
 import Buttons from './pages/ui/buttons'
 import NotMatch from './pages/notMatch'
-// import Detail from './pages/detail'
 export default class Router extends React.Component{
   render () {
     return (
@@ -18,8 +17,10 @@ export default class Router extends React.Component{
           {/* admin里面嵌套子路由 */}
           <Route path="/admin" render={() => 
             <Admin>
-              <Route path="/admin/ui/buttons" component={Buttons}></Route>
-              <Route component={ NotMatch }></Route>
+              <Switch>
+                  <Route path="/admin/ui/buttons" component={Buttons}></Route>
+                  <Route component={NotMatch}></Route>
+                </Switch>
             </Admin>
         }></Route>
         </App>
