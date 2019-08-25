@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Row, Col } from 'antd'
 import './index.less'
 export default class Footer extends Component{
   render () {

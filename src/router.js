@@ -4,6 +4,7 @@ import App from './App'
 import Admin from './admin'
 import Login from './pages/login'
 import Buttons from './pages/ui/buttons'
+import Modals from './pages/ui/modals'
 import NotMatch from './pages/notMatch'
 export default class Router extends React.Component{
   render () {
@@ -19,6 +20,7 @@ export default class Router extends React.Component{
             <Admin>
               <Switch>
                   <Route path="/admin/ui/buttons" component={Buttons}></Route>
+                  <Route path="/admin/ui/modals" component={Modals}></Route>
                   <Route component={NotMatch}></Route>
                 </Switch>
             </Admin>
