@@ -22,7 +22,7 @@ export default class Router extends React.Component{
               <Switch>
                   <Route path="/admin/ui/buttons" component={Buttons}></Route>
                   <Route path="/admin/ui/modals" component={Modals}></Route>
-                  <Route path="/admin/ui/loading" component={Loading}></Route>
+                  <Route path="/admin/ui/loadings" component={Loading}></Route>
                   <Route component={NotMatch}></Route>
                 </Switch>
             </Admin>
