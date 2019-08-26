@@ -1,6 +1,6 @@
 import React from 'react'
 import './ui.less'
-import {Card, Button, Spin, Icon, Alert } from 'antd'
+import {Card, Spin, Icon, Alert } from 'antd'
 export default class Loading extends React.Component{
   render () {
     const icon = <Icon type="loading" style={{fontSize: 24}}></Icon>

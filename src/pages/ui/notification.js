@@ -1,6 +1,6 @@
 import React from 'react'
 import './ui.less'
-import {Card, Button, notification, Icon, Alert } from 'antd'
+import {Card, Button, notification } from 'antd'
 export default class Loading extends React.Component{
   handleOpen = (type, placement) => {
     if (placement) {
