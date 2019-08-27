@@ -10,6 +10,7 @@ import Notification from './pages/ui/notification'
 import Messages from './pages/ui/messages'
 import Tabs from './pages/ui/tabs'
 import Gallery from './pages/ui/gallery'
+import Carousel from './pages/ui/carousel'
 import NotMatch from './pages/notMatch'
 export default class Router extends React.Component{
   render () {
@@ -24,13 +25,14 @@ export default class Router extends React.Component{
           <Route path="/admin" render={() => 
             <Admin>
               <Switch>
-                  <Route path="/admin/ui/buttons" component={Buttons}></Route>
-                  <Route path="/admin/ui/modals" component={Modals}></Route>
-                  <Route path="/admin/ui/loadings" component={Loading}></Route>
-                  <Route path="/admin/ui/notification" component={Notification}></Route>
-                  <Route path="/admin/ui/messages" component={Messages}></Route>
-                  <Route path="/admin/ui/gallery" component={Gallery}></Route>
-                  <Route path="/admin/ui/tabs" component={Tabs}></Route>
+                  <Route path="/admin/ui/buttons" component={ Buttons }></Route>
+                  <Route path="/admin/ui/modals" component={ Modals }></Route>
+                  <Route path="/admin/ui/loadings" component={ Loading }></Route>
+                  <Route path="/admin/ui/notification" component={ Notification }></Route>
+                  <Route path="/admin/ui/messages" component={ Messages }></Route>
+                  <Route path="/admin/ui/gallery" component={ Gallery }></Route>
+                  <Route path="/admin/ui/tabs" component={ Tabs }></Route>
+                  <Route path="/admin/ui/carousel" component={ Carousel }></Route>
                   <Route component={NotMatch}></Route>
                 </Switch>
             </Admin>

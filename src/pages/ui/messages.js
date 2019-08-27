@@ -3,7 +3,7 @@ import './ui.less'
 import {Card, Button, message } from 'antd'
 export default class Loading extends React.Component{
   handleOpen = (type) => {
-    message[type]('Hello World ' + type,)
+    message[type]('Hello World ' + type)
   }
   render () {
 
