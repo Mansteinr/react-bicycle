@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Form, Input, Button, message } from 'antd'
+import { Card, Form, Input, Button, message, Icon, Checkbox } from 'antd'
 const FormItem = Form.Item
 class Login extends React.Component{
   handleSubmit = () => {
@@ -34,12 +34,12 @@ class Login extends React.Component{
                 getFieldDecorator('username', {
                   initialValue: '韩燚',
                   rules: [
-                    { required: true, message: 'Please input your Password!' },
-                    { min: 5, max: 10, message: 'Ple your!' },
+                    { required: true, message: '用户名不能为空' },
+                    { min: 5, max: 10, message: '长度不在范围内!' },
                     { pattern: /^\w+$/g, message: '用户名必须为英文字母' }
                   ]
                 })(
-                  <Input placeholder="请输入用户名"/>
+                  <Input prefix={<Icon type="user"/>} placeholder="请输入用户名"/>
                 )
               }
             </FormItem>
@@ -49,9 +49,21 @@ class Login extends React.Component{
                   initialValue: '11111',
                   rules: []
                 })(
-                  <Input placeholder="请输入密码"/>
+                  <Input  prefix={<Icon type="lock"/>} placeholder="请输入密码"/>
                 )
               }
+            </FormItem>
+            <FormItem>
+            {
+                getFieldDecorator('rember', {
+                  initialValue: true,
+                  valuePropName: 'checked',
+                  rules: []
+                })(
+                  <Checkbox>记住密码</Checkbox>
+                )
+              }
+              <a href="#">忘记密码</a>
             </FormItem>
             <FormItem>
               <Button type="primary" onClick={this.handleSubmit}>登录</Button>
