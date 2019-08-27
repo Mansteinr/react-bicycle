@@ -4,8 +4,17 @@ import {Card, Button, message, Tabs, Icon } from 'antd'
 export default class Loading extends React.Component{
   constructor(props) {
     super(props);
-    this.newTabIndex = 0
+    this.newTabIndex = 0;
+    const panes = [
+      { title: 'Tab 1', content: 'Content of Tab Pane 1', key: '1' },
+      { title: 'Tab 2', content: 'Content of Tab Pane 2', key: '2' },
+    ];
+    this.state = {
+      activeKey: panes[0].key,
+      panes
+    }
   }
+
   state = {
     activeKey: '1'
   }
@@ -13,24 +22,7 @@ export default class Loading extends React.Component{
   callback = (key) => {
     message.info('Hello World ' + key,)
   }
-  static getDerivedStateFromProps (props, state) {
-    const panes = [{
-      title: 'Tab 1',
-      content: 'welcome to Anhui',
-      key: '1'
-    }, {
-      title: 'Tab 2',
-      content: "welcome to Lu'an",
-      key: '2'
-    }, {
-      title: 'Tab 3',
-      content: 'welcome to huoqiu',
-      key: '3'
-      }]
-    return {
-      panes
-    }
-  }
+
   handlePlus = (activeKey) => {
     this.setState({
       activeKey
@@ -41,10 +33,9 @@ export default class Loading extends React.Component{
   }
 
   add = () => {
-    debugger
     const { panes } = this.state;
     const activeKey = `newTab${this.newTabIndex++}`;
-    panes.push({ title: 'New Tab', content: 'New Tab Pane', key: activeKey });
+    panes.push({ title: 'New Tab', content: 'New Tab Pane ' + activeKey, key: activeKey });
     this.setState({ panes, activeKey });
   };
 
