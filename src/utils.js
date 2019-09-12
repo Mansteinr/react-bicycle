@@ -26,6 +26,7 @@ export default {
     }
     return format
   },
+  // 分页封装
   pagination (data, callback) {
     return {
       onChange:(current)=>{

@@ -65,6 +65,7 @@ export default class BasicTable extends React.Component{
         this.setState({
           dataSource2:res.data.result.list,
           pagination: Utils.pagination(res, (current) => {
+            // 分页传参
             _this.params.page = current;
             this.request()
           }),
