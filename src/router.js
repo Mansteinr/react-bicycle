@@ -12,7 +12,7 @@ import Gallery from './pages/ui/gallery'
 import Carousel from './pages/ui/carousel'
 import Login from './pages/form/login'
 import Reg from './pages/form/reg'
-import Basic from './pages/table/basic'
+import BasicTable from './pages/table/basic'
 import High from './pages/table/high'
 import NotMatch from './pages/notMatch'
 export default class Router extends React.Component{
@@ -38,7 +38,7 @@ export default class Router extends React.Component{
                   <Route path="/admin/ui/carousel" component={ Carousel }></Route>
                   <Route path="/admin/form/reg" component={ Reg }></Route>
                   <Route path="/admin/form/login" component={ Login }></Route>
-                  <Route path="/admin/table/basic" component={ Basic }></Route>
+                  <Route path="/admin/table/basic" component={ BasicTable }></Route>
                   <Route path="/admin/table/high" component={ High }></Route>
                   <Route component={NotMatch}></Route>
                 </Switch>

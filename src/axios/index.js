@@ -17,6 +17,9 @@ export default class Axios {
     })
   }
   static ajax (options) {
+    let loading;
+    loading = document.getElementById('ajaxLoading')
+    loading.style.display = 'block'
     const baseApi = ' https://www.easy-mock.com/mock/5b62c926061b7876217a9de3/api'
     return new Promise((resolve, reject) => {
       axios({
@@ -26,6 +29,7 @@ export default class Axios {
         timeout: 5000,
         params: (options.data && options.data.param) || ''
       }).then(res => {
+        loading.style.display = 'none'
         if (res.status === 200) {
           let data = res.data
           if (data.code === 0) {
@@ -39,6 +43,13 @@ export default class Axios {
         } else {
           reject(res.data)
         }
+      })
+        .catch(err => {
+          Modal.warning({
+            title: '警告',
+            content: err.message
+          })
+          loading.style.display = 'none'
       })
     })
   }
