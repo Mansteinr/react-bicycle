@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Table, Modal, Button, message} from 'antd';
+import { Card, Table, Modal, Button, message, Badge} from 'antd';
 import axios from './../../axios/index'
 import Utils from './../../utils'
 
@@ -45,6 +45,18 @@ export default class High extends React.Component{
   handleChange = (pagination, filters, sorter) => {
     this.setState({
       sortOrder: sorter.order
+    })
+  }
+  // 删除操作
+  handleDelete = (item) => {
+    let id = item.id, _this = this
+    Modal.confirm({
+      title: '确认',
+      content: `确认删除${id}?`,
+      onOk: () => {
+        message.success('删除成')
+        _this.request()
+      }
     })
   }
   render () {
@@ -292,7 +304,68 @@ export default class High extends React.Component{
     key: 'time',
     width: 120,
     dataIndex: 'time'
-  }]
+      }]
+    
+    const columns4 = [{
+      title:'id',
+      width: 80,
+      dataIndex:'id'
+    }, {
+      title: '用户名',
+      dataIndex: 'userName'
+    }, {
+      title: '年龄',
+      width: 80,
+      dataIndex: 'age'
+    }, {
+      title: '性别',
+      width: 80,
+      dataIndex: 'sex',
+      render(sex){
+        return sex ==1 ?'男':'女'
+      }
+    }, {
+      title: '状态',
+      width: 80,
+      dataIndex: 'state',
+      render(state){
+        let config = {
+          '1': '怎么会有',
+          '2':'风华浪子',
+          '3':'北大才子',
+          '4':'百度FE',
+          '5':'创业者'
+        }
+        return config[state];
+      }
+    }, {
+      title: '爱好',
+      width: 80,
+      dataIndex: 'interest',
+      render(abc) {
+        let config = {
+            '1': <Badge status="success" text="成功"/>,
+            '2': <Badge status="error" text="错误"/>,
+            '3': <Badge status="default" text="正常"/>,
+            '2': <Badge status="processing" text="进行中"/>,
+            '2': <Badge status="warning" text="警告"/>
+        }
+        return config[abc];
+      }
+    }, {
+      title: '生日',
+      width: 120,
+      dataIndex: 'birthday'
+    }, {
+      title: '地址',
+      width: 120,
+      dataIndex: 'address'
+    }, {
+      title: '操作',
+      render: (text, item) => {
+        return <Button size="small" onClick={(item) => { this.handleDelete(item) }}>删除</Button>
+      }
+    }]
     return (
       <div>
         <Card title="头部固定">
@@ -320,6 +393,14 @@ export default class High extends React.Component{
             dataSource={ this.state.dataSource }
             pagination={true}
             onChange = {this.handleChange}
+          />
+        </Card>
+        <Card title="操作按钮" style={{margin:'10px 0'}}>
+          <Table
+            bordered
+            columns={ columns4 }
+            dataSource={ this.state.dataSource }
+            pagination={ true }
           />
         </Card>
      </div>
