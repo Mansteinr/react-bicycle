@@ -14,6 +14,7 @@ import Login from './pages/form/login'
 import Reg from './pages/form/reg'
 import BasicTable from './pages/table/basic'
 import High from './pages/table/high'
+import City from './pages/city'
 import NotMatch from './pages/notMatch'
 export default class Router extends React.Component{
   render () {
@@ -28,20 +29,21 @@ export default class Router extends React.Component{
           <Route path="/admin" render={() => 
             <Admin>
               <Switch>
-                  <Route path="/admin/ui/buttons" component={ Buttons }></Route>
-                  <Route path="/admin/ui/modals" component={ Modals }></Route>
-                  <Route path="/admin/ui/loadings" component={ Loading }></Route>
-                  <Route path="/admin/ui/notification" component={ Notification }></Route>
-                  <Route path="/admin/ui/messages" component={ Messages }></Route>
-                  <Route path="/admin/ui/gallery" component={ Gallery }></Route>
-                  <Route path="/admin/ui/tabs" component={ Tabs }></Route>
-                  <Route path="/admin/ui/carousel" component={ Carousel }></Route>
-                  <Route path="/admin/form/reg" component={ Reg }></Route>
-                  <Route path="/admin/form/login" component={ Login }></Route>
-                  <Route path="/admin/table/basic" component={ BasicTable }></Route>
-                  <Route path="/admin/table/high" component={ High }></Route>
-                  <Route component={NotMatch}></Route>
-                </Switch>
+                <Route path="/admin/ui/buttons" component={ Buttons }></Route>
+                <Route path="/admin/ui/modals" component={ Modals }></Route>
+                <Route path="/admin/ui/loadings" component={ Loading }></Route>
+                <Route path="/admin/ui/notification" component={ Notification }></Route>
+                <Route path="/admin/ui/messages" component={ Messages }></Route>
+                <Route path="/admin/ui/gallery" component={ Gallery }></Route>
+                <Route path="/admin/ui/tabs" component={ Tabs }></Route>
+                <Route path="/admin/ui/carousel" component={ Carousel }></Route>
+                <Route path="/admin/form/reg" component={ Reg }></Route>
+                <Route path="/admin/form/login" component={ Login }></Route>
+                <Route path="/admin/table/basic" component={ BasicTable }></Route>
+                <Route path="/admin/table/high" component={ High }></Route>
+                <Route path="/admin/city" component={ City }></Route>
+                <Route component={NotMatch}></Route>
+              </Switch>
             </Admin>
         }></Route>
         </App>

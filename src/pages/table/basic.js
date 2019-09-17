@@ -58,12 +58,12 @@ export default class BasicTable extends React.Component{
         }
       }
     }).then((res) => {
-      if(res.data.code === 0){
-        res.data.result.list.map((item, index) => {
+      if(res.code === 0){
+        res.result.list.map((item, index) => {
           item.key = index;
         })
         this.setState({
-          dataSource2:res.data.result.list,
+          dataSource2:res.result.list,
           pagination: Utils.pagination(res, (current) => {
             // 分页传参
             _this.params.page = current;

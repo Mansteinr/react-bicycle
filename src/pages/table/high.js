@@ -17,19 +17,19 @@ export default class High extends React.Component{
   request = () => {
     let _this = this
     axios.ajax({
-      url:'/high/list',
+      url:'/table/high/list',
       data:{
         params:{
           page:this.params.page
         }
       }
     }).then((res) => {
-      if(res.data.code === 0){
-        res.data.result.list.map((item, index) => {
+      if(res.code === 0){
+        res.result.list.map((item, index) => {
           item.key = index;
         })
         this.setState({
-          dataSource:res.data.result.list,
+          dataSource:res.result.list,
           pagination: Utils.pagination(res, (current) => {
             // 分页传参
             _this.params.page = current;
@@ -185,37 +185,37 @@ export default class High extends React.Component{
     }, {
         title: '生日',
         width: 120,
-      key: 'birthday',
+      key: 'birthday76',
       dataIndex: 'birthday'
     }, {
       title: '生日',
       width: 120,
-    key: 'birthday',
+    key: 'birthday887',
     dataIndex: 'birthday'
   }, {
     title: '生日',
     width: 120,
-      key: 'birthday',
+      key: 'birthday0',
       dataIndex: 'birthday'
     }, {
       title: '生日',
       width: 120,
-    key: 'birthday',
+    key: 'birthday3',
     dataIndex: 'birthday'
     }, {
       title: '生日',
       width: 120,
-    key: 'birthday',
+    key: 'birthday2',
     dataIndex: 'birthday'
     }, {
       title: '生日',
       width: 120,
-    key: 'birthday',
+    key: 'birthday1',
     dataIndex: 'birthday'
     }, {
       title: '生日',
       width: 120,
-    key: 'birthday',
+    key: 'birthday4',
     dataIndex: 'birthday'
     }, {
       title: '地址',

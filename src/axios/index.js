@@ -8,7 +8,8 @@ export default class Axios {
       jsonp(options.url, {
         param: 'callback'
       }, function (err, res) {
-        if (res.error === 0) {
+        if(!res) return
+        if (res.code === 0) {
           resolve(res)
         } else {
           reject(res.message)
@@ -33,7 +34,7 @@ export default class Axios {
         if (res.status === 200) {
           let data = res.data
           if (data.code === 0) {
-            resolve(res)
+            resolve(data)
           } else {
             Modal.info({
               title: '提示',
