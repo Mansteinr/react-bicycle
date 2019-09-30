@@ -27,7 +27,6 @@ export default class City extends React.Component{
   handleSubmit = () => {
     // 取到ref里面的值
     let cityInfo = this.cityForm.props.form.getFieldsValue()
-    console.log(cityInfo)
     axios.ajax({
       url: '/city/open',
       data: {
@@ -104,7 +103,7 @@ export default class City extends React.Component{
       dataIndex: 'sys_user_name'
     }]
     return (
-      <div>
+      <div className="city">
         <Card>
           <FilterForm/>
         </Card>

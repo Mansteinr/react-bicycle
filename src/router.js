@@ -15,6 +15,7 @@ import Reg from './pages/form/reg'
 import BasicTable from './pages/table/basic'
 import High from './pages/table/high'
 import City from './pages/city'
+import Order from './pages/order'
 import NotMatch from './pages/notMatch'
 export default class Router extends React.Component{
   render () {
@@ -42,6 +43,7 @@ export default class Router extends React.Component{
                 <Route path="/admin/table/basic" component={ BasicTable }></Route>
                 <Route path="/admin/table/high" component={ High }></Route>
                 <Route path="/admin/city" component={ City }></Route>
+                <Route path="/admin/order" component={ Order }></Route>
                 <Route component={NotMatch}></Route>
               </Switch>
             </Admin>
