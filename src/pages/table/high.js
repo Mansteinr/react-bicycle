@@ -26,7 +26,7 @@ export default class High extends React.Component{
     }).then((res) => {
       if(res.code === 0){
         res.result.list.map((item, index) => {
-          item.key = index;
+          return item.key = index;
         })
         this.setState({
           dataSource:res.result.list,
@@ -76,7 +76,7 @@ export default class High extends React.Component{
         width: 80,
       dataIndex: 'sex',
       render(sex){
-        return sex ==1 ?'男':'女'
+        return sex ===1 ?'男':'女'
       }
     }, {
       title: '状态',
@@ -147,7 +147,7 @@ export default class High extends React.Component{
         width: 80,
       dataIndex: 'sex',
       render(sex){
-        return sex ==1 ?'男':'女'
+        return sex === 1 ?'男':'女'
       }
     }, {
       title: '状态',
@@ -254,7 +254,7 @@ export default class High extends React.Component{
     width: 80,
     dataIndex: 'sex',
     render(sex){
-      return sex ==1 ?'男':'女'
+      return sex ===1 ?'男':'女'
     }
   }, {
     title: '状态',
@@ -322,7 +322,7 @@ export default class High extends React.Component{
       width: 80,
       dataIndex: 'sex',
       render(sex){
-        return sex ==1 ?'男':'女'
+        return sex === 1 ?'男':'女'
       }
     }, {
       title: '状态',
@@ -347,8 +347,8 @@ export default class High extends React.Component{
             '1': <Badge status="success" text="成功"/>,
             '2': <Badge status="error" text="错误"/>,
             '3': <Badge status="default" text="正常"/>,
-            '2': <Badge status="processing" text="进行中"/>,
-            '2': <Badge status="warning" text="警告"/>
+            '4': <Badge status="processing" text="进行中"/>,
+            '5': <Badge status="warning" text="警告"/>
         }
         return config[abc];
       }

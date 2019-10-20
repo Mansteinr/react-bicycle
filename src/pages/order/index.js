@@ -36,10 +36,22 @@ export default class Order extends React.Component{
           _this.requestList()
         })
       })
+    }).catch(err => {
+      Modal.info({
+        content: err.message
+      })
     })
   }
-
+  // 结束订单
   handleOrderFinish = () => {
+    let item = this.state.selectedItem
+    if (!item || !item.id) {
+      Modal.info({
+        title: '信息',
+        content: '请选择一条订单进行结束'
+      })
+      return
+    } 
     axios.ajax({
       url: '/order/ebike_info',
       data: {
@@ -50,16 +62,17 @@ export default class Order extends React.Component{
         orderInfo: res.result,
         orderComfirmOrder: true
       })
+    }).catch(err => {
+      Modal.info({
+        content: err.message
+      })
     })
    
   }
-
+  // 订单确认
   handleOk = () => {
-    let item = this.state.selectedItem
-    if (!item) return 
-    console.log(item.id)
     axios.ajax({
-      url: '/order/finish_order',
+      url: '/order/finish',
       data: {
         params: 1
       }
@@ -69,6 +82,10 @@ export default class Order extends React.Component{
         orderComfirmOrder: false
       })
       this.requestList()
+    }).catch(err => {
+      Modal.info({
+        content: err.message
+      })
     })
   }
   onRowClick = (record, index) => {
@@ -79,6 +96,18 @@ export default class Order extends React.Component{
       selectedRowKeys:selectKey,
       selectedItem: record
     })
+  }
+  // 订单详情
+  openOrderDetail = () => {
+    let item = this.state.selectedItem
+    if (!item || !item.id) {
+      Modal.info({
+        title: '信息',
+        content: '请选择一条订单'
+      })
+      return
+    } 
+    window.open(`/#/common/order/detail/${item.id}`, '_blank')
   }
   render () {
     const formItemLayout = {
@@ -125,8 +154,10 @@ export default class Order extends React.Component{
       title: '实付金额',
       dataIndex: 'user_pay'
       }]
+    const selectedRowKeys = this.state.selectedRowKeys
     const rowSelection = {
-      type: 'radio'
+      type: 'radio',
+      selectedRowKeys
     }
     return (
       <div>
@@ -134,8 +165,8 @@ export default class Order extends React.Component{
           <FilterForm/>
         </Card>
         <Card>
-          <Button type="primary">订单详情</Button>
-          <Button onClick={ this.handleOrderFinish }>结束订单</Button>
+          <Button type="primary" onClick={this.openOrderDetail}>订单详情</Button>
+          <Button type="primary" onClick={ this.handleOrderFinish }>结束订单</Button>
         </Card>
         <Card>
           <Table
@@ -143,6 +174,14 @@ export default class Order extends React.Component{
             dataSource={this.state.list}
             pagination={this.state.pagination}
             rowSelection={rowSelection}
+            // 点击一行时 单选有效
+            onRow={(record,index) => {
+              return {
+                onClick:()=>{
+                  this.onRowClick(record,index);
+                }
+              }
+            }}
           />
         </Card>
         <Modal
@@ -152,14 +191,6 @@ export default class Order extends React.Component{
             this.setState({
               orderComfirmOrder: false
             })
-          }}
-          // 点击一行时 单选有效
-          onRow={(record,index) => {
-            return {
-              onClick:()=>{
-                this.onRowClick(record,index);
-              }
-            }
           }}
           onOk={this.handleOk}
           width={600}

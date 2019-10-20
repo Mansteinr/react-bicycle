@@ -39,7 +39,7 @@ export default class BasicTable extends React.Component{
       time: '09:00'
     }]
     data.map((item,index) => {
-        item.key = index;
+       return item.key = index;
     })
     this.setState({
         dataSource: data
@@ -60,7 +60,7 @@ export default class BasicTable extends React.Component{
     }).then((res) => {
       if(res.code === 0){
         res.result.list.map((item, index) => {
-          item.key = index;
+         return item.key = index;
         })
         this.setState({
           dataSource2:res.result.list,
@@ -94,7 +94,7 @@ export default class BasicTable extends React.Component{
     let rows = this.state.selectedRows;
     let ids = []
     rows.map((item) => {
-      ids.push(item.id)
+     return ids.push(item.id)
     })
     Modal.confirm({
       title:'删除提示',
@@ -120,7 +120,7 @@ render(){
       key: 'sex',
       dataIndex: 'sex',
       render(sex){
-        return sex ==1 ?'男':'女'
+        return sex ===1 ?'男':'女'
       }
     }, {
       title: '状态',

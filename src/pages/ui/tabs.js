@@ -1,6 +1,6 @@
 import React from 'react'
 import './ui.less'
-import {Card, Button, message, Tabs, Icon } from 'antd'
+import {Card, message, Tabs, Icon } from 'antd'
 export default class Loading extends React.Component{
   constructor(props) {
     super(props);
