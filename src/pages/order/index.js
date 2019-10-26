@@ -19,7 +19,7 @@ export default class Order extends React.Component{
   requestList = (url) => {
     let _this = this
     axios.ajax({
-      url: url || '/order/list',
+      url: url || '/order/list.json',
       data: {
         params: {
           page: this.params.page
@@ -129,24 +129,28 @@ export default class Order extends React.Component{
       dataIndex: 'user_name'
     },{
       title: '手机号码',
-      dataIndex: 'mobile'
+      dataIndex: 'moble'
     },{
       title: '里程',
-      dataIndex: 'distance'
+      dataIndex: 'distance',
+      render(distance){
+        return distance/1000 + 'Km';
+      }
     },{
       title: '行驶时长',
       dataIndex: 'total_time'
     },{
       title: '状态',
-      dataIndex: 'status'
+      dataIndex: 'status',
+      render(status){
+        return status === 1 ? '进行中' : '订单已结束'
+      }
     },{
       title: '开始时间',
-      dataIndex: 'start_time',
-      render: Utils.formatterTime
+      dataIndex: 'start_time'
     },{
       title: '结束时间',
-      dataIndex: 'end_time',
-      render: Utils.formatterTime
+      dataIndex: 'end_time'
     },{
       title: '订单金额',
       dataIndex: 'total_fee'
