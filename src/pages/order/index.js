@@ -16,10 +16,10 @@ export default class Order extends React.Component{
   componentDidMount () {
     this.requestList()
   }
-  requestList = () => {
+  requestList = (url) => {
     let _this = this
     axios.ajax({
-      url: '/order/list',
+      url: url || '/order/list',
       data: {
         params: {
           page: this.params.page

@@ -1,7 +1,6 @@
 import React from 'react'
-import { Card, Button, Table, Form, Select, Modal, message, DatePicker } from 'antd'
+import { Card } from 'antd'
 import axios from '../../axios/index'
-import Utils from '../../utils'
 import './detail.less'
 
 export default class Order extends React.Component {

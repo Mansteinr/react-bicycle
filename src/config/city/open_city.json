@@ -1,0 +1,185 @@
+{
+  "code": 0,
+  "result": {
+    "page": 1,
+    "page_size": 10,
+    "total_count": 60,
+    "page_count": 6,
+    "item_list": [{
+        "id": 1,
+        "name": "长春市",
+        "mode": 2,
+        "op_mode": 1,
+        "franchisee_id": 77,
+        "franchisee_name": "孔芳",
+        "city_admins": [{
+          "user_name": "熊杰",
+          "user_id": 1001
+        }],
+        "open_time": "2012-03-30 10:11:00",
+        "sys_user_name": "石娟",
+        "update_time": "1993-07-19 19:30:52"
+      },
+      {
+        "id": 2,
+        "name": "天津市",
+        "mode": 2,
+        "op_mode": 2,
+        "franchisee_id": 77,
+        "franchisee_name": "杨超",
+        "city_admins": [{
+          "user_name": "蔡超",
+          "user_id": 1002
+        }],
+        "open_time": "1989-06-29 15:02:53",
+        "sys_user_name": "余敏",
+        "update_time": "2015-06-10 20:41:43"
+      },
+      {
+        "id": 3,
+        "name": "金昌市",
+        "mode": 2,
+        "op_mode": 2,
+        "franchisee_id": 77,
+        "franchisee_name": "胡勇",
+        "city_admins": [{
+            "user_name": "田娜",
+            "user_id": 1003
+          },
+          {
+            "user_name": "罗平",
+            "user_id": 1004
+          }
+        ],
+        "open_time": "1976-03-12 10:45:23",
+        "sys_user_name": "陈勇",
+        "update_time": "1995-03-19 23:40:39"
+      },
+      {
+        "id": 4,
+        "name": "天津市",
+        "mode": 1,
+        "op_mode": 2,
+        "franchisee_id": 77,
+        "franchisee_name": "康超",
+        "city_admins": [{
+          "user_name": "梁超",
+          "user_id": 1005
+        }],
+        "open_time": "1998-09-07 02:24:26",
+        "sys_user_name": "姜静",
+        "update_time": "2004-09-22 00:57:59"
+      },
+      {
+        "id": 5,
+        "name": "临汾市",
+        "mode": 2,
+        "op_mode": 2,
+        "franchisee_id": 77,
+        "franchisee_name": "于芳",
+        "city_admins": [{
+            "user_name": "何超",
+            "user_id": 1006
+          },
+          {
+            "user_name": "杨刚",
+            "user_id": 1007
+          }
+        ],
+        "open_time": "2011-05-10 18:55:26",
+        "sys_user_name": "林秀兰",
+        "update_time": "1973-04-30 14:38:08"
+      },
+      {
+        "id": 6,
+        "name": "山南地区",
+        "mode": 1,
+        "op_mode": 1,
+        "franchisee_id": 77,
+        "franchisee_name": "梁强",
+        "city_admins": [{
+          "user_name": "于艳",
+          "user_id": 1008
+        }],
+        "open_time": "2007-02-05 09:01:49",
+        "sys_user_name": "张刚",
+        "update_time": "1984-03-08 22:01:32"
+      },
+      {
+        "id": 7,
+        "name": "花莲县",
+        "mode": 1,
+        "op_mode": 2,
+        "franchisee_id": 77,
+        "franchisee_name": "孔艳",
+        "city_admins": [{
+            "user_name": "谢霞",
+            "user_id": 1009
+          },
+          {
+            "user_name": "雷杰",
+            "user_id": 1010
+          }
+        ],
+        "open_time": "1971-05-13 11:08:15",
+        "sys_user_name": "汪娟",
+        "update_time": "1970-10-11 17:49:32"
+      },
+      {
+        "id": 8,
+        "name": "渭南市",
+        "mode": 2,
+        "op_mode": 2,
+        "franchisee_id": 77,
+        "franchisee_name": "苏秀兰",
+        "city_admins": [{
+            "user_name": "夏娟",
+            "user_id": 1011
+          },
+          {
+            "user_name": "魏平",
+            "user_id": 1012
+          }
+        ],
+        "open_time": "1971-03-26 01:24:25",
+        "sys_user_name": "易霞",
+        "update_time": "1975-05-22 23:56:06"
+      },
+      {
+        "id": 9,
+        "name": "台州市",
+        "mode": 1,
+        "op_mode": 2,
+        "franchisee_id": 77,
+        "franchisee_name": "唐敏",
+        "city_admins": [{
+          "user_name": "郝平",
+          "user_id": 1013
+        }],
+        "open_time": "2000-04-05 18:43:35",
+        "sys_user_name": "刘芳",
+        "update_time": "1981-07-07 00:02:45"
+      },
+      {
+        "id": 10,
+        "name": "天津市",
+        "mode": 2,
+        "op_mode": 1,
+        "franchisee_id": 77,
+        "franchisee_name": "贺强",
+        "city_admins": [{
+            "user_name": "唐敏",
+            "user_id": 1014
+          },
+          {
+            "user_name": "黄娜",
+            "user_id": 1015
+          }
+        ],
+        "open_time": "2010-05-06 18:38:53",
+        "sys_user_name": "廖磊",
+        "update_time": "1983-10-19 05:17:46"
+      }
+    ]
+  }
+}
