@@ -18,7 +18,6 @@ export default class Axios {
     })
   }
   static ajax (options) {
-    console.log('../config/order/detail.json')
     let loading;
     loading = document.getElementById('ajaxLoading')
     loading.style.display = 'block'

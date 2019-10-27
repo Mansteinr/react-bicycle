@@ -24,7 +24,7 @@ export default class Order extends React.Component {
         this.setState({
           orderInfo: res.result
         })
-        this.renderMap(res.result.position_list)
+        this.renderMap(res.result)
       }
     }).catch(err => {
       console.log(err.message)
@@ -37,11 +37,10 @@ export default class Order extends React.Component {
     this.map = new window.BMap.Map('orderDetailMap', {
       enableMapClick: false
     })
-    // 地图中心点
-    this.map.centerAndZoom('南京', 11)
     // 添加控件 如放大缩小 量尺
     this.addMapControl()
-    this.drawRouter(result)
+    this.drawRouter(result.position_list)
+    this.drawServiceArea(result.area)
   }
 
   addMapControl = () => {
@@ -53,25 +52,59 @@ export default class Order extends React.Component {
   }
 
   // 绘制路线图
-
   drawRouter = (positionList) => {
     let map = this.map, startPoint = '', endPoint = ''
-    if (positionList.lengt) {
-      let arr = positionList[0]
-      // 起始坐标点
-      startPoint = new window.BMap.point(arr.lon, arr.lat)
-      // 创建起始坐标的图标
-      // new window.BMap.size(36, 42)设置空间大小
-      let startIcon = new window.BMap.Icon('/assets/start.point.png', new window.BMap.size(36, 42), {
-        imageSize: new window.BMap.size(36, 42),
-        anchor: new window.BMap.size(36, 42)
-      })
-      let startMarker = new window.BMap.Marker(startPoint, startIcon)
-
+    if (positionList.length) {
+      let first = positionList[0], last = positionList[positionList.length - 1]
+      // 起始点
+      startPoint = new window.BMap.Point(first.lon,first.lat);
+      let startIcon = new window.BMap.Icon('/assets/start_point.png',new window.BMap.Size(36,42),{
+          imageSize:new window.BMap.Size(36,42),
+          anchor: new window.BMap.Size(18, 42)
+      }), startMarker = new window.BMap.Marker(startPoint, { icon: startIcon})
+      map.addOverlay(startMarker)
       
-    }
-    
+      // 终点
+      endPoint = new window.BMap.Point(last.lon, last.lat)
+      let endIcon = new window.BMap.Icon('/assets/end_point.png', new window.BMap.Size(36, 42), {
+          imageSize: new window.BMap.Size(36, 42),
+          anchor: new window.BMap.Size(18, 42)
+      }), endMarker = new window.BMap.Marker(endPoint, { icon: endIcon })
+      map.addOverlay(endMarker)
 
+      // 连接路线图
+      let trackPoint = [];
+      for(let i=0;i<positionList.length;i++){
+          let point = positionList[i];
+          trackPoint.push(new window.BMap.Point(point.lon, point.lat));
+      }
+      // 设置连线的属性
+      let polyline = new window.BMap.Polyline(trackPoint,{
+          strokeColor:'#1869AD',
+          strokeWeight:3,
+          strokeOpacity:1
+      })
+      this.map.addOverlay(polyline)
+      // 设置显示地图中心 // 地图中心点
+      this.map.centerAndZoom(endPoint, 11)
+    }
+  }
+  // 绘制服务区
+  drawServiceArea = (positionList) => {
+    // 连接路线图
+    let trackPoint = []
+    for(let i=0;i<positionList.length;i++){
+        let point = positionList[i];
+        trackPoint.push(new window.BMap.Point(point.lon, point.lat));
+    }
+    let Polygon = new window.BMap.Polygon(trackPoint, {
+      strokeColor:'#CE0000',
+      strokeWeight:2,
+      strokeOpacity: 1,
+      fillColor: '#ff8605',
+      fillOpacity: 0.3
+    })
+    this.map.addOverlay(Polygon)
   }
   render () {
     const info = this.state.orderInfo || {}
@@ -118,7 +151,7 @@ export default class Order extends React.Component {
               </li>
               <li>
                 <div className="detail-form-left">行驶里程</div>
-                <div className="detail-form-content">{distance}</div>
+                <div className="detail-form-content">{distance + ''}</div>
               </li>
             </ul>
           </div>

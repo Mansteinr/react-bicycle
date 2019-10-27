@@ -1,6 +1,5 @@
 export default {
   formatterTime (timestamp, format) {
-    console.log(timestamp, format)
     //format:  "yyyy-m-d h:i:s.S","yyyy年mm月dd日 hh:ii:ss"  default: "yyyy-mm-dd hh:ii:ss"
     var obj = parseInt(timestamp)
     var date = new Date(obj)
@@ -25,7 +24,6 @@ export default {
         format = format.replace(RegExp.$1, (RegExp.$1.length === 1) ? (data[k]) : (("00" + data[k]).substring(("" + data[k]).length)))
       }
     }
-    console.log(format)
     return format
   },
   // 分页封装

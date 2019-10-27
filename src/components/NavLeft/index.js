@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import MenuConfig from './../../config/menuConfig'
+import MenuConfig from './menuConfig'
 import { Menu } from 'antd'
 import './index.less'
 
