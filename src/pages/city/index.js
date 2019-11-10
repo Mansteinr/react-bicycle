@@ -28,7 +28,7 @@ export default class City extends React.Component{
     // 取到ref里面的值
     let cityInfo = this.cityForm.props.form.getFieldsValue()
     axios.ajax({
-      url: '/city/open',
+      url: '/city/open.json',
       data: {
         params: cityInfo
       }
@@ -42,7 +42,7 @@ export default class City extends React.Component{
   requestList = () => {
     let _this = this
     axios.ajax({
-      url: '/open_city',
+      url: '/city/open_city.json',
       data: {
         params: {
           page: this.params.page

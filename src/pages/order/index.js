@@ -2,6 +2,8 @@ import React from 'react'
 import { Card, Button, Table, Form, Select, Modal, message, DatePicker } from 'antd'
 import axios from '../../axios/index'
 import Utils from '../../utils'
+import BaseForm from '../../components/BaseForm'
+
 const FormItem = Form.Item, Option = Select.Option
 
 export default class Order extends React.Component{
@@ -13,9 +15,60 @@ export default class Order extends React.Component{
   params = {
     page: 1
   }
+  formList = [{
+    type: 'SELECT',
+    lable: '城市',
+    field: 'city',
+    placeholder: '全部',
+    initialValue: '0',
+    width: 100,
+    list: [{
+      id: '0',
+      name: '全部'
+    },{
+      id: '1',
+      name: '北京'
+    },{
+      id: '2',
+      name: '南京'
+    },{
+      id: '3',
+      name: '合肥'
+    },{
+      id: '4',
+      name: '六安'
+    },{
+      id: '5',
+      name: '霍邱'
+    }]
+  }, {
+    type: '时间查询'
+    }, {
+      type: 'SELECT',
+      field: 'order_status',
+      lable: '订单状态',
+      placeholder: '全部',
+      initialValue: '1',
+      width: 100,
+      list: [{
+        id: '0',
+        name: '全部'
+      },{
+        id: '1',
+        name: '进行中'
+      },{
+        id: '0',
+        name: '已结束'
+      }]
+  }]
   componentDidMount () {
     this.requestList()
   }
+  handleFilter = (params) => {
+    this.params = params
+    this.requestList()
+  }
+
   requestList = (url) => {
     let _this = this
     axios.ajax({
@@ -166,7 +219,7 @@ export default class Order extends React.Component{
     return (
       <div>
         <Card>
-          <FilterForm/>
+          <BaseForm formList={this.formList} filterSubmit={this.handleFilter}/>
         </Card>
         <Card>
           <Button type="primary" onClick={this.openOrderDetail}>订单详情</Button>

@@ -1,3 +1,9 @@
+
+import React from 'react'
+import { Select } from 'antd'
+
+let Option = Select.Option
+
 export default {
   formatterTime (timestamp, format) {
     //format:  "yyyy-m-d h:i:s.S","yyyy年mm月dd日 hh:ii:ss"  default: "yyyy-mm-dd hh:ii:ss"
@@ -40,5 +46,15 @@ export default {
       },
       showQuickJumper:true
     }
+  },
+  getOptionList (data) {
+    if (!data) {
+      return []
+    }
+    let options = []
+    data.map((v) => {
+      options.push(<Option value={v.id} key={v.id}>{ v.name }</Option>)
+    })
+    return options
   }
 }
